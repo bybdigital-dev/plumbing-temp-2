@@ -148,6 +148,7 @@ export default function GalleryPage() {
                 size="lg" 
                 className="bg-orange text-orange-foreground hover:bg-orange/90"
                 data-testid="button-gallery-quote"
+                onClick={() => window.location.href = '/contact'}
               >
                 Get Free Quote
               </Button>
@@ -156,6 +157,7 @@ export default function GalleryPage() {
                 variant="outline" 
                 className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 data-testid="button-gallery-call"
+                onClick={() => window.location.href = 'tel:+27111234567'}
               >
                 Call +27 11 123 4567
               </Button>

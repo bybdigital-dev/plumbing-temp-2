@@ -89,6 +89,7 @@ export default function About() {
               <Button 
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
                 data-testid="button-contact-us"
+                onClick={() => window.location.href = '/contact'}
               >
                 Contact Us Today
               </Button>

@@ -132,6 +132,7 @@ export default function Home() {
               size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               data-testid="button-view-all-services"
+              onClick={() => window.location.href = '/services'}
             >
               View All Services
               <ArrowRight className="h-5 w-5 ml-2" />
@@ -208,6 +209,7 @@ export default function Home() {
                 size="lg" 
                 className="bg-orange text-orange-foreground hover:bg-orange/90"
                 data-testid="button-cta-emergency"
+                onClick={() => window.location.href = 'tel:+27111234567'}
               >
                 Emergency Service: +27 11 123 4567
               </Button>
@@ -216,6 +218,7 @@ export default function Home() {
                 variant="outline" 
                 className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 data-testid="button-cta-quote"
+                onClick={() => window.location.href = '/contact'}
               >
                 Get Free Quote
               </Button>

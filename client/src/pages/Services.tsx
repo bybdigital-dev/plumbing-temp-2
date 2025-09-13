@@ -165,6 +165,7 @@ export default function Services() {
                 size="lg" 
                 className="bg-orange text-orange-foreground hover:bg-orange/90"
                 data-testid="button-emergency-service"
+                onClick={() => window.location.href = 'tel:+27111234567'}
               >
                 <Phone className="h-5 w-5 mr-2" />
                 24/7 Emergency: +27 11 123 4567
@@ -173,6 +174,7 @@ export default function Services() {
                 size="lg" 
                 variant="outline"
                 data-testid="button-get-quote"
+                onClick={() => window.location.href = '/contact'}
               >
                 Get Free Quote
               </Button>
@@ -289,6 +291,7 @@ export default function Services() {
               size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90"
               data-testid="button-emergency-call"
+              onClick={() => window.location.href = 'tel:+27111234567'}
             >
               <Phone className="h-5 w-5 mr-2" />
               Call Emergency Line: +27 11 123 4567
