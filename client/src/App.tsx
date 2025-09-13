@@ -6,6 +6,7 @@ import { Router as WouterRouter, Switch, Route } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 
 // Import Components
+import ScrollToTop from "@/components/scrolltotop";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -44,6 +45,7 @@ function App() {
             </main>
             <Footer />
             <Hero />
+            <ScrollToTop />
           </WouterRouter>
         </div>
         <Toaster />
