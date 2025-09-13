@@ -35,13 +35,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="min-h-screen flex flex-col">
+          <WouterRouter hook={useHashLocation}>
           <Header />
           <main className="flex-1">
-            <WouterRouter hook={useHashLocation}>
               <AppRoutes />
-            </WouterRouter>
           </main>
           <Footer />
+            </WouterRouter>
         </div>
         <Toaster />
       </TooltipProvider>
