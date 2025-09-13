@@ -44,7 +44,6 @@ function App() {
               <AppRoutes />
             </main>
             <Footer />
-            <Hero />
             <ScrollToTop />
           </WouterRouter>
         </div>
