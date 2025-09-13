@@ -17,7 +17,7 @@ import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
-function Router() {
+function AppRoutes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -37,7 +37,9 @@ function App() {
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">
-            <Router />
+            <WouterRouter hook={useHashLocation}>
+              <AppRoutes />
+            </WouterRouter>
           </main>
           <Footer />
         </div>
