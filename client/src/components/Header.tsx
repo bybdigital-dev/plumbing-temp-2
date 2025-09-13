@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -7,6 +7,16 @@ import { Menu, Phone, Wrench } from "lucide-react";
 export default function Header() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -32,7 +42,11 @@ export default function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-background/98 backdrop-blur-md shadow-sm' 
+        : 'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+    }`}>
       <div className="container mx-auto px-4 flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/">
@@ -56,6 +70,7 @@ export default function Header() {
           <Button 
             className="hidden sm:flex bg-orange text-orange-foreground hover:bg-orange/90" 
             data-testid="button-get-quote"
+            onClick={() => window.location.href = 'tel:+27111234567'}
           >
             <Phone className="h-4 w-4 mr-2" />
             Get a Quote
@@ -88,6 +103,10 @@ export default function Header() {
                 <Button 
                   className="w-full mt-4 bg-orange text-orange-foreground hover:bg-orange/90"
                   data-testid="button-mobile-quote"
+                  onClick={() => {
+                    window.location.href = 'tel:+27111234567';
+                    setIsOpen(false);
+                  }}
                 >
                   <Phone className="h-4 w-4 mr-2" />
                   Get a Quote

@@ -33,6 +33,7 @@ export default function Hero() {
                 size="lg" 
                 className="bg-orange text-orange-foreground hover:bg-orange/90"
                 data-testid="button-hero-quote"
+                onClick={() => window.location.href = '/contact'}
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Get Free Quote
@@ -41,6 +42,7 @@ export default function Hero() {
                 size="lg" 
                 variant="outline"
                 data-testid="button-hero-services"
+                onClick={() => window.location.href = '/services'}
               >
                 View Services
               </Button>

@@ -100,6 +100,7 @@ export default function Footer() {
               <Button 
                 className="w-full bg-orange text-orange-foreground hover:bg-orange/90"
                 data-testid="button-footer-emergency"
+                onClick={() => window.location.href = 'tel:+27111234567'}
               >
                 <Phone className="h-4 w-4 mr-2" />
                 Call Now: +27 11 123 4567
@@ -108,6 +109,7 @@ export default function Footer() {
                 variant="outline" 
                 className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
                 data-testid="button-footer-whatsapp"
+                onClick={() => window.open('https://wa.me/27111234567?text=Hi%20AquaPro%2C%20I%20need%20help%20with%20a%20plumbing%20issue.', '_blank')}
               >
                 <MessageSquare className="h-4 w-4 mr-2" />
                 WhatsApp Us

@@ -38,14 +38,39 @@ export default function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    console.log("Form submitted:", data); //todo: remove mock functionality
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Create FormData for FormSubmit
+      const formData = new FormData();
+      formData.append('firstName', data.firstName);
+      formData.append('lastName', data.lastName);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('serviceType', data.serviceType);
+      formData.append('message', data.message);
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+      formData.append('_subject', 'New Plumbing Enquiry from AquaPro Website');
+      formData.append('_next', `${window.location.origin}/form-success.html`);
+
+      // Submit to FormSubmit (replace with actual endpoint)
+      const response = await fetch('https://formsubmit.co/info@aquapro.co.za', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // FormSubmit will redirect automatically on success
+        window.location.href = '/form-success.html';
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert("Sorry, there was an error sending your message. Please try again or call us directly at +27 11 123 4567.");
+    } finally {
       setIsSubmitting(false);
-      alert("Thank you for your message! We'll get back to you within 24 hours.");
-      form.reset();
-    }, 1500);
+    }
   };
 
   const serviceTypes = [
@@ -114,6 +139,7 @@ export default function ContactForm() {
         <Button 
           className="w-full bg-green-600 hover:bg-green-700 text-white"
           data-testid="button-whatsapp"
+          onClick={() => window.open('https://wa.me/27111234567?text=Hi%20AquaPro%2C%20I%20need%20help%20with%20a%20plumbing%20issue.', '_blank')}
         >
           <MessageSquare className="h-4 w-4 mr-2" />
           WhatsApp Us
@@ -132,11 +158,6 @@ export default function ContactForm() {
           <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* Hidden FormSubmit fields */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_subject" value="New Plumbing Enquiry" />
-                <input type="hidden" name="_next" value="./form-success.html" />
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <FormField
