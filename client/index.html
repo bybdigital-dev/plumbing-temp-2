@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      // If no hash on first visit, force "#/" so wouter sees "/"
+      if (!location.hash) {
+        location.replace(location.pathname + location.search + "#/");
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>AquaPro Plumbing - Professional Plumbing Services | Emergency Repairs</title>
