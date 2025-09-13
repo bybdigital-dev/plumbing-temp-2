@@ -38,13 +38,14 @@ function App() {
       <TooltipProvider>
         <div className="min-h-screen flex flex-col">
           <WouterRouter hook={useHashLocation}>
+            <ScrollToTop />
             <Header />
 
             <main className="flex-1">
               <AppRoutes />
             </main>
             <Footer />
-            <ScrollToTop />
+            
           </WouterRouter>
         </div>
         <Toaster />
