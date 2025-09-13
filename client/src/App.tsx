@@ -8,6 +8,7 @@ import { useHashLocation } from "wouter/use-hash-location";
 // Import Components
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
 
 // Import Pages
 import Home from "@/pages/Home";
@@ -36,12 +37,14 @@ function App() {
       <TooltipProvider>
         <div className="min-h-screen flex flex-col">
           <WouterRouter hook={useHashLocation}>
-          <Header />
-          <main className="flex-1">
+            <Header />
+
+            <main className="flex-1">
               <AppRoutes />
-          </main>
-          <Footer />
-            </WouterRouter>
+            </main>
+            <Footer />
+            <Hero />
+          </WouterRouter>
         </div>
         <Toaster />
       </TooltipProvider>
